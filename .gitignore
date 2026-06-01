@@ -1,0 +1,11 @@
+# Секреты — НИКОГДА не заливать на GitHub!
+.env
+
+# Локальная память
+state.json
+
+# Python мусор
+__pycache__/
+*.pyc
+.venv/
+venv/
