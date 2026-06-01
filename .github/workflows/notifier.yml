@@ -14,19 +14,13 @@ concurrency:
 jobs:
   check-mail:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Получить код
         uses: actions/checkout@v4
 
-      - name: Установить Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: "pip"
-
       - name: Установить зависимости
-        run: pip install -r requirements.txt
+        run: pip install --quiet -r requirements.txt
 
       - name: Проверить почту и отправить уведомления
         env:
@@ -40,4 +34,4 @@ jobs:
           NOTIFY_LANGUAGE: "ru"
           NOTIFY_UNKNOWN: "false"
           MARK_SEEN: "true"
-        run: python main.py --once
+        run: python3 main.py --once

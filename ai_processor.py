@@ -55,7 +55,7 @@ URGENCY: <high|normal|low>"""
 
     try:
         model = _get_model()
-        resp = model.generate_content(prompt)
+        resp = model.generate_content(prompt, request_options={"timeout": 25})
         raw = (resp.text or "").strip()
     except Exception as e:  # noqa: BLE001
         print(f"[AI] ошибка, пропускаю выжимку: {e}")
